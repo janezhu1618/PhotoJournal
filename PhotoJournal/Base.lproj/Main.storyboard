@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Journal-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Photo Journal" id="BYZ-38-t0r" customClass="PhotoJournalViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w86-aQ-Ubj">
+                                <rect key="frame" x="0.0" y="1007" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="iEz-Fp-8OA" userLabel="Right Space"/>
+                                    <barButtonItem systemItem="add" id="BGx-OJ-PTt">
+                                        <connections>
+                                            <segue destination="JXt-XY-fZz" kind="presentation" id="cTu-RY-fnu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hRO-ck-snz" userLabel="Left Space"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyS-hq-b7M">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Photo Journal" id="ryJ-iU-LgH"/>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ojp-IP-Uem">
+                                <rect key="frame" x="0.0" y="88" width="414" height="759"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tO7-cT-sSu">
+                                    <size key="itemSize" width="414" height="504"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JournalCell" id="NgN-6w-UB7" customClass="JournalCell" customModule="PhotoJournal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lij-H3-jBb">
+                                                    <rect key="frame" x="20.5" y="8" width="373" height="372.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Lij-H3-jBb" secondAttribute="height" multiplier="1:1" id="HsO-Wa-KT2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUP-Pq-y5O" userLabel="Title">
+                                                    <rect key="frame" x="20.5" y="401.5" width="335.5" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="Fa1-ft-Mn5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIp-gH-fPd">
+                                                    <rect key="frame" x="356" y="401.5" width="37.5" height="24"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                                    <state key="normal" title="•••">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="HZ6-Vh-Esg" kind="modal" id="4hR-hg-zyw"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-Ox-FWk" userLabel="Detail Text">
+                                                    <rect key="frame" x="20.5" y="439.5" width="335.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="z1h-Ox-FWk" firstAttribute="top" secondItem="jUP-Pq-y5O" secondAttribute="bottom" constant="14" id="A5t-lc-ths"/>
+                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="height" secondItem="jUP-Pq-y5O" secondAttribute="height" id="AQf-NY-84J"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="leading" secondItem="Lij-H3-jBb" secondAttribute="leading" id="Hhg-2i-d3C"/>
+                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="leading" secondItem="jUP-Pq-y5O" secondAttribute="trailing" id="O4G-0S-kZ0"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="width" secondItem="Lij-H3-jBb" secondAttribute="width" multiplier="0.9" id="Vns-Br-MJp"/>
+                                            <constraint firstItem="Lij-H3-jBb" firstAttribute="centerX" secondItem="NgN-6w-UB7" secondAttribute="centerX" id="YDp-og-yhp"/>
+                                            <constraint firstItem="Lij-H3-jBb" firstAttribute="top" secondItem="NgN-6w-UB7" secondAttribute="top" constant="8" id="a6v-lU-CzS"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="trailing" secondItem="z1h-Ox-FWk" secondAttribute="trailing" id="d5l-CV-ivQ"/>
+                                            <constraint firstItem="Lij-H3-jBb" firstAttribute="width" secondItem="NgN-6w-UB7" secondAttribute="width" multiplier="0.9" id="dIz-1S-xGn"/>
+                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="centerY" secondItem="jUP-Pq-y5O" secondAttribute="centerY" id="ku7-2I-Usc"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="top" secondItem="Lij-H3-jBb" secondAttribute="bottom" constant="21" id="ujq-d6-d2C"/>
+                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="trailing" secondItem="Lij-H3-jBb" secondAttribute="trailing" id="uwP-q9-tQR"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="leading" secondItem="z1h-Ox-FWk" secondAttribute="leading" id="zmB-lI-Pmu"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="journalCaption" destination="z1h-Ox-FWk" id="VZQ-un-02b"/>
+                                            <outlet property="journalImageView" destination="Lij-H3-jBb" id="i2J-bR-qbZ"/>
+                                            <outlet property="journalTimeStamp" destination="z1h-Ox-FWk" id="WQn-KA-zVs"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w86-aQ-Ubj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hu2-dB-xca"/>
+                            <constraint firstAttribute="bottom" secondItem="w86-aQ-Ubj" secondAttribute="bottom" id="LA2-RK-zhB"/>
+                            <constraint firstItem="w86-aQ-Ubj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OA5-kT-GDU"/>
+                            <constraint firstItem="OyS-hq-b7M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Txf-QO-ZYu"/>
+                            <constraint firstItem="OyS-hq-b7M" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VCG-4k-OvK"/>
+                            <constraint firstItem="w86-aQ-Ubj" firstAttribute="top" secondItem="ojp-IP-Uem" secondAttribute="bottom" id="XlC-Kv-5gw"/>
+                            <constraint firstItem="w86-aQ-Ubj" firstAttribute="top" secondItem="ojp-IP-Uem" secondAttribute="bottom" id="aRD-ri-dpf"/>
+                            <constraint firstItem="ojp-IP-Uem" firstAttribute="top" secondItem="OyS-hq-b7M" secondAttribute="bottom" id="bBK-IQ-TCj"/>
+                            <constraint firstItem="OyS-hq-b7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bgV-Kp-ENZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ojp-IP-Uem" secondAttribute="trailing" id="i1O-Ex-4kW"/>
+                            <constraint firstItem="ojp-IP-Uem" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kdL-25-cZZ"/>
+                            <constraint firstItem="ojp-IP-Uem" firstAttribute="top" secondItem="OyS-hq-b7M" secondAttribute="bottom" id="qxJ-1C-fms"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="noEntryView" destination="cVd-yG-m5m" id="dfC-dc-LHp"/>
+                        <outlet property="photoJournalCollectionView" destination="ojp-IP-Uem" id="x3Q-jp-JUZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="cVd-yG-m5m">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFO-wF-rhe">
+                            <rect key="frame" x="85" y="57.5" width="70" height="23"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="rFO-wF-rhe" firstAttribute="centerX" secondItem="OFB-xO-kPa" secondAttribute="centerX" id="EgW-x2-rEh"/>
+                        <constraint firstItem="rFO-wF-rhe" firstAttribute="centerY" secondItem="OFB-xO-kPa" secondAttribute="centerY" id="KWZ-Id-cVY"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="OFB-xO-kPa"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="53.623188405797109" y="26.785714285714285"/>
+        </scene>
+        <!--Journal Image Picker View Controller-->
+        <scene sceneID="BGd-G3-CWm">
+            <objects>
+                <viewController id="JXt-XY-fZz" customClass="JournalImagePickerViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aWK-ye-7TH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-5K-qPk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Journal Details" id="f3d-6w-ajD">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mLV-rN-igP">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="JXt-XY-fZz" id="Xa5-h0-Gpe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dHY-fv-Hni">
+                                            <connections>
+                                                <action selector="saveButtonPressed:" destination="JXt-XY-fZz" id="O6S-8N-nxP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NuM-cp-o6m">
+                                <rect key="frame" x="11" y="88" width="392" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1Ya-I8-CJP"/>
+                                </constraints>
+                                <string key="text">This is the detail of the photo journal entry... This is the detail of the photo journal entry... This is the detail of the photo journal entry... This is the detail of the photo journal entry...</string>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-y8-qD3">
+                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" image="photoLibrary" id="1T6-hl-Uuw"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4xi-EB-6BC"/>
+                                    <barButtonItem systemItem="camera" id="CwK-17-Myy"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="L8n-GP-jnc">
+                                <rect key="frame" x="11" y="199" width="392" height="522.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="L8n-GP-jnc" secondAttribute="height" multiplier="3:4" id="S8d-Bh-QQ0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="juj-dG-fAt" firstAttribute="trailing" secondItem="NuM-cp-o6m" secondAttribute="trailing" constant="11" id="74K-2i-81E"/>
+                            <constraint firstItem="NuM-cp-o6m" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" constant="11" id="Eet-oG-lai"/>
+                            <constraint firstItem="NuM-cp-o6m" firstAttribute="top" secondItem="nLR-5K-qPk" secondAttribute="bottom" id="OSc-3h-Enx"/>
+                            <constraint firstItem="nLR-5K-qPk" firstAttribute="top" secondItem="juj-dG-fAt" secondAttribute="top" id="a4Q-KY-GCY"/>
+                            <constraint firstItem="nLR-5K-qPk" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" id="bMX-26-csx"/>
+                            <constraint firstItem="nLR-5K-qPk" firstAttribute="trailing" secondItem="juj-dG-fAt" secondAttribute="trailing" id="fWq-Lq-6gF"/>
+                            <constraint firstItem="L8n-GP-jnc" firstAttribute="top" secondItem="NuM-cp-o6m" secondAttribute="bottom" constant="11" id="g9M-ga-7Kh"/>
+                            <constraint firstItem="L8n-GP-jnc" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" constant="11" id="t6z-xV-i2k"/>
+                            <constraint firstItem="juj-dG-fAt" firstAttribute="trailing" secondItem="L8n-GP-jnc" secondAttribute="trailing" constant="11" id="zyw-G5-TFG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="juj-dG-fAt"/>
+                    </view>
+                    <connections>
+                        <outlet property="journalDetailTextView" destination="NuM-cp-o6m" id="BLO-ss-ezd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtB-KP-4ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="697"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Bi5-Kg-GSf">
+            <objects>
+                <viewController id="HZ6-Vh-Esg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhH-IT-s7g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs2-BX-E3o">
+                                <rect key="frame" x="184" y="770" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Dux-nG-OX2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8tN-W7-WK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="28"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="photoLibrary" width="22.5" height="22.5"/>
+        <image name="placeHolder" width="512" height="512"/>
+    </resources>
+</document>
