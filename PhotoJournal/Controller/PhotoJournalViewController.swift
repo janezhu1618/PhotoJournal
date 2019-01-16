@@ -36,16 +36,17 @@ class PhotoJournalViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getPhotoJournals()
     }
+    
     @IBAction func optionsButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "", message: "What would you like to do with the journal entry?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (action) in
-            print("user clicked share")
+            print("user clicked share \(sender.tag)")
         }))
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
-            print("user clicked edit")
+            print("user clicked edit \(sender.tag)")
         }))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-            print("user clicked delete")
+            print("user clicked delete \(sender.tag)")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -64,17 +65,18 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         } else {
         let journalToSet = photoJournals[indexPath.row]
         cell.journalCaption.text = journalToSet.caption
-        cell.journalTimeStamp.text = journalToSet.lastUpdated
+        cell.journalTimeStamp.text = journalToSet.dateFormattedString
         if let image = UIImage(data: journalToSet.imageData) {
             cell.journalImageView.image = image
             }
         }
+
         return cell
     }
 }
 
 extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 400, height: 600)
+        return CGSize(width: 400, height: 500)
     }
 }

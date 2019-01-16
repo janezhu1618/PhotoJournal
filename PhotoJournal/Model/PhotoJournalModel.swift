@@ -28,7 +28,7 @@ struct PhotoJournalModel {
         } else {
             print("\(filename) file does not exist")
         }
-        //photoJournals = photoJournals.sorted{ $0.date > $1.date }
+        photoJournals = photoJournals.sorted{ $0.date > $1.date }
         return photoJournals
     }
     
@@ -50,6 +50,11 @@ struct PhotoJournalModel {
     
     static func deleteJournal(atIndex: Int) {
         photoJournals.remove(at: atIndex)
+        save()
+    }
+    
+    static func updateItem(photoJournal: PhotoJournal, atIndex: Int) {
+        photoJournals[atIndex] = photoJournal
         save()
     }
     

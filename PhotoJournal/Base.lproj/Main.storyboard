@@ -32,6 +32,7 @@
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyS-hq-b7M">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Photo Journal" id="ryJ-iU-LgH"/>
                                 </items>
@@ -59,18 +60,9 @@
                                                         <constraint firstAttribute="width" secondItem="Lij-H3-jBb" secondAttribute="height" multiplier="1:1" id="HsO-Wa-KT2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUP-Pq-y5O" userLabel="Title">
-                                                    <rect key="frame" x="20.5" y="401.5" width="335.5" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="Fa1-ft-Mn5"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIp-gH-fPd">
-                                                    <rect key="frame" x="356" y="401.5" width="37.5" height="24"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                                    <rect key="frame" x="346.5" y="391.5" width="48.5" height="36"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                     <state key="normal" title="•••">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -78,9 +70,18 @@
                                                         <action selector="optionsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n7f-m9-65w"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-Ox-FWk" userLabel="Detail Text">
-                                                    <rect key="frame" x="20.5" y="439.5" width="335.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-Ox-FWk" userLabel="Detail Text">
+                                                    <rect key="frame" x="19" y="465.5" width="376" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUP-Pq-y5O" userLabel="Title">
+                                                    <rect key="frame" x="19" y="391.5" width="316.5" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="CSS-pe-Fsm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -88,19 +89,18 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="z1h-Ox-FWk" firstAttribute="top" secondItem="jUP-Pq-y5O" secondAttribute="bottom" constant="14" id="A5t-lc-ths"/>
-                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="height" secondItem="jUP-Pq-y5O" secondAttribute="height" id="AQf-NY-84J"/>
-                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="leading" secondItem="Lij-H3-jBb" secondAttribute="leading" id="Hhg-2i-d3C"/>
-                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="leading" secondItem="jUP-Pq-y5O" secondAttribute="trailing" id="O4G-0S-kZ0"/>
-                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="width" secondItem="Lij-H3-jBb" secondAttribute="width" multiplier="0.9" id="Vns-Br-MJp"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="YIp-gH-fPd" secondAttribute="trailing" constant="11" id="2aT-dt-n9u"/>
+                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="top" secondItem="Lij-H3-jBb" secondAttribute="bottom" constant="11" id="BHt-Yt-KCU"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="z1h-Ox-FWk" secondAttribute="bottom" constant="11" id="HdO-aW-1wL"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="z1h-Ox-FWk" secondAttribute="trailing" constant="11" id="VAW-0k-xjL"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="top" secondItem="Lij-H3-jBb" secondAttribute="bottom" constant="11" id="Xy0-sh-ucc"/>
                                             <constraint firstItem="Lij-H3-jBb" firstAttribute="centerX" secondItem="NgN-6w-UB7" secondAttribute="centerX" id="YDp-og-yhp"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="width" secondItem="Lij-H3-jBb" secondAttribute="width" multiplier="0.85" id="YsC-5X-qr9"/>
                                             <constraint firstItem="Lij-H3-jBb" firstAttribute="top" secondItem="NgN-6w-UB7" secondAttribute="top" constant="8" id="a6v-lU-CzS"/>
-                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="trailing" secondItem="z1h-Ox-FWk" secondAttribute="trailing" id="d5l-CV-ivQ"/>
+                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="leading" secondItem="jUP-Pq-y5O" secondAttribute="trailing" constant="11" id="bc9-2d-GM6"/>
                                             <constraint firstItem="Lij-H3-jBb" firstAttribute="width" secondItem="NgN-6w-UB7" secondAttribute="width" multiplier="0.9" id="dIz-1S-xGn"/>
-                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="centerY" secondItem="jUP-Pq-y5O" secondAttribute="centerY" id="ku7-2I-Usc"/>
-                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="top" secondItem="Lij-H3-jBb" secondAttribute="bottom" constant="21" id="ujq-d6-d2C"/>
-                                            <constraint firstItem="YIp-gH-fPd" firstAttribute="trailing" secondItem="Lij-H3-jBb" secondAttribute="trailing" id="uwP-q9-tQR"/>
-                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="leading" secondItem="z1h-Ox-FWk" secondAttribute="leading" id="zmB-lI-Pmu"/>
+                                            <constraint firstItem="jUP-Pq-y5O" firstAttribute="leading" secondItem="NgN-6w-UB7" secondAttribute="leadingMargin" constant="11" id="eKG-SF-Qs3"/>
+                                            <constraint firstItem="z1h-Ox-FWk" firstAttribute="leading" secondItem="NgN-6w-UB7" secondAttribute="leadingMargin" constant="11" id="ilW-Wc-TCJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="journalCaption" destination="jUP-Pq-y5O" id="sZU-t2-Idh"/>
