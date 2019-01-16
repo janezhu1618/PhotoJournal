@@ -105,6 +105,7 @@
                                         <connections>
                                             <outlet property="journalCaption" destination="jUP-Pq-y5O" id="sZU-t2-Idh"/>
                                             <outlet property="journalImageView" destination="Lij-H3-jBb" id="i2J-bR-qbZ"/>
+                                            <outlet property="journalOptionsButton" destination="YIp-gH-fPd" id="VPJ-T7-1wQ"/>
                                             <outlet property="journalTimeStamp" destination="z1h-Ox-FWk" id="WQn-KA-zVs"/>
                                         </connections>
                                     </collectionViewCell>
@@ -230,9 +231,8 @@
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="CwK-17-Myy" id="oy1-Bb-EU3"/>
-                        <outlet property="journalDetailTextView" destination="NuM-cp-o6m" id="BLO-ss-ezd"/>
+                        <outlet property="journalCaptionTextView" destination="NuM-cp-o6m" id="BLO-ss-ezd"/>
                         <outlet property="journalPhoto" destination="L8n-GP-jnc" id="Nlm-ZU-EBm"/>
-                        <outlet property="journalPhotoCaptionTextView" destination="NuM-cp-o6m" id="J9d-0I-Ud3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtB-KP-4ok" userLabel="First Responder" sceneMemberID="firstResponder"/>

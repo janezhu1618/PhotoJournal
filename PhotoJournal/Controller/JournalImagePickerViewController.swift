@@ -11,23 +11,37 @@ import AVKit
 
 class JournalImagePickerViewController: UIViewController {
 
-    @IBOutlet weak var journalDetailTextView: UITextView!
+    @IBOutlet weak var journalCaptionTextView: UITextView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var journalPhotoCaptionTextView: UITextView!
     @IBOutlet weak var journalPhoto: UIImageView!
+    var photoJournal: PhotoJournal?
+    var indexNumber = 0
     
     private var imagePickerViewController: UIImagePickerController!
     private var journalCaptionPlaceHolder = "Type in your caption..."
+    
+    fileprivate func setUpJournalDetailViewController() {
+        if let photoJournal = photoJournal {
+            journalCaptionTextView.text = photoJournal.caption
+            journalCaptionTextView.textColor = .black
+            if let image = UIImage(data: photoJournal.imageData) {
+                journalPhoto.image = image
+            }
+        } else {
+            journalCaptionTextView.text = journalCaptionPlaceHolder
+            journalCaptionTextView.textColor = .darkGray
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
-        journalPhotoCaptionTextView.delegate = self
-        journalPhotoCaptionTextView.text = journalCaptionPlaceHolder
+        journalCaptionTextView.delegate = self
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             cameraButton.isEnabled = false
         }
+        setUpJournalDetailViewController()
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
@@ -43,10 +57,19 @@ class JournalImagePickerViewController: UIViewController {
                                           .withTimeZone,
                                           .withDashSeparatorInDate]
         let timeStamp = isoDateFormatter.string(from: date)
-        if let imageExists = journalPhoto.image {
-            if let imageData = imageExists.jpegData(compressionQuality: 0.5), let photoCaption = journalPhotoCaptionTextView.text {
+        if let _ = photoJournal {
+            if let imageExists = journalPhoto.image, let photoCaption = journalCaptionTextView.text {
+                if let imageData = imageExists.jpegData(compressionQuality: 0.5) {
+                    let photoJournal = PhotoJournal.init(lastUpdated: timeStamp, caption: photoCaption, imageData: imageData)
+                PhotoJournalModel.updateItem(photoJournal: photoJournal, atIndex: indexNumber)
+            }
+            }
+        } else {
+            if let imageExists = journalPhoto.image {
+                if let imageData = imageExists.jpegData(compressionQuality: 0.5), let photoCaption = journalCaptionTextView.text {
                 let photoJournal = PhotoJournal.init(lastUpdated: timeStamp, caption: photoCaption, imageData: imageData)
-            PhotoJournalModel.addJournal(photoJournal: photoJournal)
+                PhotoJournalModel.addJournal(photoJournal: photoJournal)
+            }
         }
         }
         dismiss(animated: true, completion: nil)
@@ -93,14 +116,14 @@ extension JournalImagePickerViewController: UIImagePickerControllerDelegate, UIN
 
 extension JournalImagePickerViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if journalPhotoCaptionTextView.text == journalCaptionPlaceHolder {
+        if journalCaptionTextView.text == journalCaptionPlaceHolder {
             textView.text = ""
             textView.textColor = .black
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if journalPhotoCaptionTextView.text == "" {
+        if journalCaptionTextView.text == "" {
             textView.text = journalCaptionPlaceHolder
             textView.textColor = .darkGray
         }
