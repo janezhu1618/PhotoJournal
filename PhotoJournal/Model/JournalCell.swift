@@ -13,4 +13,5 @@ class JournalCell: UICollectionViewCell {
     @IBOutlet weak var journalImageView: UIImageView!
     @IBOutlet weak var journalCaption: UILabel!
     @IBOutlet weak var journalTimeStamp: UILabel!
+    
 }

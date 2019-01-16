@@ -66,8 +66,8 @@
 			children = (
 				A5929B5821ED15DF0041BE6F /* Main.storyboard */,
 				A5929B7721ED38C60041BE6F /* DataPersistenceManager.swift */,
-				A5929B7221ED376C0041BE6F /* Controller */,
 				A5929B7321ED37760041BE6F /* Model */,
+				A5929B7221ED376C0041BE6F /* Controller */,
 				A5929B7421ED38260041BE6F /* Supporting Files */,
 				A5929B6021ED15E20041BE6F /* Info.plist */,
 			);

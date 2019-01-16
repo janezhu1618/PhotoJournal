@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w86-aQ-Ubj">
-                                <rect key="frame" x="0.0" y="1007" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="847" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iEz-Fp-8OA" userLabel="Right Space"/>
                                     <barButtonItem systemItem="add" id="BGx-OJ-PTt">
@@ -74,9 +74,6 @@
                                                     <state key="normal" title="•••">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
-                                                    <connections>
-                                                        <segue destination="HZ6-Vh-Esg" kind="modal" id="4hR-hg-zyw"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-Ox-FWk" userLabel="Detail Text">
                                                     <rect key="frame" x="20.5" y="439.5" width="335.5" height="19.5"/>
@@ -103,7 +100,7 @@
                                             <constraint firstItem="jUP-Pq-y5O" firstAttribute="leading" secondItem="z1h-Ox-FWk" secondAttribute="leading" id="zmB-lI-Pmu"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="journalCaption" destination="z1h-Ox-FWk" id="VZQ-un-02b"/>
+                                            <outlet property="journalCaption" destination="jUP-Pq-y5O" id="sZU-t2-Idh"/>
                                             <outlet property="journalImageView" destination="Lij-H3-jBb" id="i2J-bR-qbZ"/>
                                             <outlet property="journalTimeStamp" destination="z1h-Ox-FWk" id="WQn-KA-zVs"/>
                                         </connections>
@@ -182,7 +179,7 @@
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NuM-cp-o6m">
                                 <rect key="frame" x="11" y="88" width="392" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="1Ya-I8-CJP"/>
                                 </constraints>
@@ -194,9 +191,17 @@
                                 <rect key="frame" x="0.0" y="852" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" image="photoLibrary" id="1T6-hl-Uuw"/>
+                                    <barButtonItem title="Item" image="photoLibrary" id="1T6-hl-Uuw">
+                                        <connections>
+                                            <action selector="photoLibraryButtonPressed:" destination="JXt-XY-fZz" id="aGT-9f-ofn"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4xi-EB-6BC"/>
-                                    <barButtonItem systemItem="camera" id="CwK-17-Myy"/>
+                                    <barButtonItem systemItem="camera" id="CwK-17-Myy">
+                                        <connections>
+                                            <action selector="cameraButtonPressed:" destination="JXt-XY-fZz" id="GwT-AO-hch"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="L8n-GP-jnc">
@@ -221,34 +226,15 @@
                         <viewLayoutGuide key="safeArea" id="juj-dG-fAt"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="CwK-17-Myy" id="oy1-Bb-EU3"/>
                         <outlet property="journalDetailTextView" destination="NuM-cp-o6m" id="BLO-ss-ezd"/>
+                        <outlet property="journalPhoto" destination="L8n-GP-jnc" id="Nlm-ZU-EBm"/>
+                        <outlet property="journalPhotoCaptionTextView" destination="NuM-cp-o6m" id="J9d-0I-Ud3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtB-KP-4ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54" y="697"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Bi5-Kg-GSf">
-            <objects>
-                <viewController id="HZ6-Vh-Esg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bhH-IT-s7g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs2-BX-E3o">
-                                <rect key="frame" x="184" y="770" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Dux-nG-OX2"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8tN-W7-WK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="810" y="28"/>
         </scene>
     </scenes>
     <resources>
