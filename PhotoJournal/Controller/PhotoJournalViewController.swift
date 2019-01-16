@@ -52,19 +52,23 @@ class PhotoJournalViewController: UIViewController {
         PhotoJournalModel.deleteJournal(atIndex: photoJournalIndexNumber)
     }
     
+    private func editJournal() {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let destinationViewController = storyBoard.instantiateViewController(withIdentifier: "JournalDetails") as? JournalImagePickerViewController else { return }
+        destinationViewController.modalPresentationStyle = .currentContext
+        destinationViewController.photoJournal = photoJournals[self.photoJournalIndexNumber]
+        destinationViewController.indexNumber = photoJournalIndexNumber
+        present(destinationViewController, animated: true, completion: nil)
+    }
+    
     @IBAction func optionsButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "", message: "What would you like to do with this journal entry?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
             self.deleteJournal()
-            self.getPhotoJournals() 
+            self.getPhotoJournals()
         }))
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
-            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            guard let destinationViewController = storyBoard.instantiateViewController(withIdentifier: "JournalDetails") as? JournalImagePickerViewController else { return }
-            destinationViewController.modalPresentationStyle = .currentContext
-            destinationViewController.photoJournal = self.photoJournals[self.photoJournalIndexNumber]
-            destinationViewController.indexNumber = self.photoJournalIndexNumber
-            self.present(destinationViewController, animated: true, completion: nil)
+            self.editJournal()
         }))
         alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (action) in
             self.shareJournal()
@@ -79,19 +83,13 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         return photoJournals.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = photoJournalCollectionView.dequeueReusableCell(withReuseIdentifier: "JournalCell", for: indexPath) as? JournalCell
-            else { fatalError("JournalCell not found") }
-        if photoJournals.isEmpty {
-            print("empty")
-        } else {
+        guard let cell = photoJournalCollectionView.dequeueReusableCell(withReuseIdentifier: "JournalCell", for: indexPath) as? JournalCell else { return UICollectionViewCell() }
         let journalToSet = photoJournals[indexPath.row]
         cell.journalCaption.text = journalToSet.caption
         cell.journalTimeStamp.text = journalToSet.dateFormattedString
         if let image = UIImage(data: journalToSet.imageData) {
             cell.journalImageView.image = image
-            }
         }
-
         return cell
     }
 }
