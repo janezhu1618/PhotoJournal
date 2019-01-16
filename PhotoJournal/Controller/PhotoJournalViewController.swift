@@ -29,18 +29,15 @@ class PhotoJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getPhotoJournals()
-        print(DataPersistenceManager.documentsDirectory())
         photoJournalCollectionView.dataSource = self
         photoJournalCollectionView.delegate = self
-        print("we have \(photoJournals.count)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getPhotoJournals()
     }
-
-    private func optionsButtonPressed() {
-        let alert = UIAlertController(title: "What would you like to do?", message: "", preferredStyle: .actionSheet)
+    @IBAction func optionsButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "", message: "What would you like to do with the journal entry?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (action) in
             print("user clicked share")
         }))
@@ -50,12 +47,9 @@ class PhotoJournalViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
             print("user clicked delete")
         }))
-        alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: { (action) in
-            print("user clicked cancel")
-        }))
-        present(alert, animated: true, completion: {print("completion block")})
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
-    
 }
 
 extension PhotoJournalViewController: UICollectionViewDataSource {

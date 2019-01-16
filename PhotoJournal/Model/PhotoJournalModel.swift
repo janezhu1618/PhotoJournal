@@ -48,5 +48,10 @@ struct PhotoJournalModel {
         }
     }
     
+    static func deleteJournal(atIndex: Int) {
+        photoJournals.remove(at: atIndex)
+        save()
+    }
+    
     
 }
