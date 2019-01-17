@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController title="Photo Journal" id="BYZ-38-t0r" customClass="PhotoJournalViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w86-aQ-Ubj">
-                                <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iEz-Fp-8OA" userLabel="Right Space"/>
                                     <barButtonItem systemItem="add" id="BGx-OJ-PTt">
@@ -31,14 +31,14 @@
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyS-hq-b7M">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Photo Journal" id="ryJ-iU-LgH"/>
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ojp-IP-Uem">
-                                <rect key="frame" x="0.0" y="88" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tO7-cT-sSu">
                                     <size key="itemSize" width="414" height="504"/>
@@ -54,14 +54,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="504"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lij-H3-jBb">
-                                                    <rect key="frame" x="20.5" y="8" width="373" height="372.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lij-H3-jBb">
+                                                    <rect key="frame" x="20.666666666666657" y="8" width="372.66666666666674" height="372.66666666666669"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Lij-H3-jBb" secondAttribute="height" multiplier="1:1" id="HsO-Wa-KT2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIp-gH-fPd">
-                                                    <rect key="frame" x="346.5" y="391.5" width="48.5" height="36"/>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIp-gH-fPd">
+                                                    <rect key="frame" x="346.66666666666669" y="391.66666666666669" width="48.333333333333314" height="36"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                     <state key="normal" title="•••">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,14 +70,14 @@
                                                         <action selector="optionsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n7f-m9-65w"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-Ox-FWk" userLabel="Detail Text">
-                                                    <rect key="frame" x="19" y="465.5" width="376" height="19.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-Ox-FWk" userLabel="Detail Text">
+                                                    <rect key="frame" x="19" y="465.33333333333331" width="376" height="19.666666666666686"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUP-Pq-y5O" userLabel="Title">
-                                                    <rect key="frame" x="19" y="391.5" width="316.5" height="50"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUP-Pq-y5O" userLabel="Title">
+                                                    <rect key="frame" x="19" y="391.66666666666669" width="316.66666666666669" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="CSS-pe-Fsm"/>
                                                     </constraints>
@@ -140,7 +140,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFO-wF-rhe">
-                            <rect key="frame" x="85" y="57.5" width="70" height="23"/>
+                            <rect key="frame" x="85" y="52.666666666666657" width="70" height="23"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -161,11 +161,11 @@
             <objects>
                 <viewController storyboardIdentifier="JournalDetails" id="JXt-XY-fZz" customClass="JournalImagePickerViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aWK-ye-7TH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLR-5K-qPk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Journal Details" id="f3d-6w-ajD">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mLV-rN-igP">
@@ -182,7 +182,7 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NuM-cp-o6m">
-                                <rect key="frame" x="11" y="88" width="392" height="100"/>
+                                <rect key="frame" x="11" y="64" width="392" height="100"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="1Ya-I8-CJP"/>
@@ -191,9 +191,8 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-y8-qD3">
-                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-y8-qD3">
+                                <rect key="frame" x="0.0" y="698" width="414" height="38"/>
                                 <items>
                                     <barButtonItem title="Item" image="photoLibrary" id="1T6-hl-Uuw">
                                         <connections>
@@ -208,19 +207,20 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="L8n-GP-jnc">
-                                <rect key="frame" x="11" y="199" width="392" height="522.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="L8n-GP-jnc" secondAttribute="height" multiplier="3:4" id="S8d-Bh-QQ0"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="L8n-GP-jnc">
+                                <rect key="frame" x="11" y="175" width="392" height="512"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="juj-dG-fAt" firstAttribute="trailing" secondItem="NuM-cp-o6m" secondAttribute="trailing" constant="11" id="74K-2i-81E"/>
+                            <constraint firstItem="nD0-y8-qD3" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" id="EG9-pG-Iyq"/>
                             <constraint firstItem="NuM-cp-o6m" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" constant="11" id="Eet-oG-lai"/>
+                            <constraint firstAttribute="bottom" secondItem="nD0-y8-qD3" secondAttribute="bottom" id="G4C-vZ-v2S"/>
+                            <constraint firstItem="nD0-y8-qD3" firstAttribute="top" secondItem="L8n-GP-jnc" secondAttribute="bottom" constant="11" id="H0w-KN-rpq"/>
                             <constraint firstItem="NuM-cp-o6m" firstAttribute="top" secondItem="nLR-5K-qPk" secondAttribute="bottom" id="OSc-3h-Enx"/>
                             <constraint firstItem="nLR-5K-qPk" firstAttribute="top" secondItem="juj-dG-fAt" secondAttribute="top" id="a4Q-KY-GCY"/>
+                            <constraint firstItem="nD0-y8-qD3" firstAttribute="trailing" secondItem="juj-dG-fAt" secondAttribute="trailing" id="apr-Bs-1wZ"/>
                             <constraint firstItem="nLR-5K-qPk" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" id="bMX-26-csx"/>
                             <constraint firstItem="nLR-5K-qPk" firstAttribute="trailing" secondItem="juj-dG-fAt" secondAttribute="trailing" id="fWq-Lq-6gF"/>
                             <constraint firstItem="L8n-GP-jnc" firstAttribute="top" secondItem="NuM-cp-o6m" secondAttribute="bottom" constant="11" id="g9M-ga-7Kh"/>
