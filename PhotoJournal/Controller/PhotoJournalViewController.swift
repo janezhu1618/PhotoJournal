@@ -13,8 +13,6 @@ class PhotoJournalViewController: UIViewController {
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
     @IBOutlet var noEntryView: UIView!
     
-    private var photoJournalIndexNumber = 0
-    
     private var photoJournals = PhotoJournalModel.getPhotoJournal() {
         didSet {
             photoJournalCollectionView.reloadData()
@@ -39,39 +37,38 @@ class PhotoJournalViewController: UIViewController {
         getPhotoJournals()
     }
     
-    private func shareJournal() {
-        if let imageToShare = UIImage(data: photoJournals[photoJournalIndexNumber].imageData) {
-            let image = imageToShare
-            let captionToShare = photoJournals[photoJournalIndexNumber].caption
-        let activityViewController = UIActivityViewController(activityItems: [image, captionToShare], applicationActivities: nil)
+    private func shareJournal(atIndex: Int) {
+        if let imageToShare = UIImage(data: photoJournals[atIndex].imageData) {
+            let captionToShare = photoJournals[atIndex].caption
+        let activityViewController = UIActivityViewController(activityItems: [imageToShare, captionToShare], applicationActivities: nil)
             present(activityViewController, animated: true)
         }
     }
     
-    private func deleteJournal() {
-        PhotoJournalModel.deleteJournal(atIndex: photoJournalIndexNumber)
+    private func deleteJournal(atIndex: Int) {
+        PhotoJournalModel.deleteJournal(atIndex: atIndex)
     }
     
-    private func editJournal() {
+    private func editJournal(atIndex: Int) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let destinationViewController = storyBoard.instantiateViewController(withIdentifier: "JournalDetails") as? JournalImagePickerViewController else { return }
         destinationViewController.modalPresentationStyle = .currentContext
-        destinationViewController.photoJournal = photoJournals[self.photoJournalIndexNumber]
-        destinationViewController.indexNumber = photoJournalIndexNumber
+        destinationViewController.photoJournal = photoJournals[atIndex]
+        destinationViewController.indexNumber = atIndex
         present(destinationViewController, animated: true, completion: nil)
     }
     
     @IBAction func optionsButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "", message: "What would you like to do with this journal entry?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-            self.deleteJournal()
+            self.deleteJournal(atIndex: sender.tag)
             self.getPhotoJournals()
         }))
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
-            self.editJournal()
+            self.editJournal(atIndex: sender.tag)
         }))
         alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (action) in
-            self.shareJournal()
+            self.shareJournal(atIndex: sender.tag)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -87,6 +84,7 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         let journalToSet = photoJournals[indexPath.row]
         cell.journalCaption.text = journalToSet.caption
         cell.journalTimeStamp.text = journalToSet.dateFormattedString
+        cell.journalOptionsButton.tag = indexPath.row // sender.tag is now equivalent to the index number
         if let image = UIImage(data: journalToSet.imageData) {
             cell.journalImageView.image = image
         }
@@ -97,9 +95,5 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
 extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 400, height: 500)
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        photoJournalIndexNumber = indexPath.row
-        print(photoJournalIndexNumber)
     }
 }
