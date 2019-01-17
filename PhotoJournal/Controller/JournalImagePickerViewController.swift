@@ -61,7 +61,7 @@ class JournalImagePickerViewController: UIViewController {
             if let imageExists = journalPhoto.image, let photoCaption = journalCaptionTextView.text {
                 if let imageData = imageExists.jpegData(compressionQuality: 0.5) {
                     let photoJournal = PhotoJournal.init(lastUpdated: timeStamp, caption: photoCaption, imageData: imageData)
-                PhotoJournalModel.updateItem(photoJournal: photoJournal, atIndex: indexNumber)
+                PhotoJournalModel.updateJournal(photoJournal: photoJournal, atIndex: indexNumber)
             }
             }
         } else {

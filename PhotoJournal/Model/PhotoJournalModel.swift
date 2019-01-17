@@ -34,11 +34,10 @@ struct PhotoJournalModel {
     
     static func addJournal(photoJournal: PhotoJournal) {
         photoJournals.append(photoJournal)
-        save()
+        saveJournal()
     }
     
-    
-    static func save() {
+    static func saveJournal() {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
         do {
             let data = try PropertyListEncoder().encode(photoJournals)
@@ -50,12 +49,12 @@ struct PhotoJournalModel {
     
     static func deleteJournal(atIndex: Int) {
         photoJournals.remove(at: atIndex)
-        save()
+        saveJournal()
     }
     
-    static func updateItem(photoJournal: PhotoJournal, atIndex: Int) {
+    static func updateJournal(photoJournal: PhotoJournal, atIndex: Int) {
         photoJournals[atIndex] = photoJournal
-        save()
+        saveJournal()
     }
     
     
