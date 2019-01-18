@@ -12,6 +12,20 @@ class PhotoJournalViewController: UIViewController {
     
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
     @IBOutlet var noEntryView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    private var refreshControl: UIRefreshControl!
+    
+    @objc private func fetchJournals() {
+        refreshControl.endRefreshing()
+        getPhotoJournals()
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        photoJournalCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(fetchJournals), for: .valueChanged)
+    }
     
     private var photoJournals = PhotoJournalModel.getPhotoJournal() {
         didSet {
@@ -29,8 +43,10 @@ class PhotoJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getPhotoJournals()
+        searchBar.delegate = self
         photoJournalCollectionView.dataSource = self
         photoJournalCollectionView.delegate = self
+        setupRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,3 +113,12 @@ extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 400, height: 500)
     }
 }
+
+extension PhotoJournalViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let searchText = searchBar.text else { return }
+        photoJournals = photoJournals.filter{ $0.caption.lowercased().contains(searchText.lowercased())}
+    }
+}
+

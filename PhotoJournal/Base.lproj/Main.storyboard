@@ -38,7 +38,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ojp-IP-Uem">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="572"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tO7-cT-sSu">
                                     <size key="itemSize" width="414" height="504"/>
@@ -111,27 +111,34 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Search photo caption" translatesAutoresizingMaskIntoConstraints="NO" id="fmC-bH-Pof">
+                                <rect key="frame" x="0.0" y="64" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fmC-bH-Pof" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8BA-U3-Fjs"/>
                             <constraint firstItem="w86-aQ-Ubj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hu2-dB-xca"/>
                             <constraint firstAttribute="bottom" secondItem="w86-aQ-Ubj" secondAttribute="bottom" id="LA2-RK-zhB"/>
                             <constraint firstItem="w86-aQ-Ubj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OA5-kT-GDU"/>
+                            <constraint firstItem="fmC-bH-Pof" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RDu-P4-epU"/>
+                            <constraint firstItem="fmC-bH-Pof" firstAttribute="top" secondItem="OyS-hq-b7M" secondAttribute="bottom" id="RjR-q1-9fP"/>
+                            <constraint firstItem="ojp-IP-Uem" firstAttribute="top" secondItem="fmC-bH-Pof" secondAttribute="bottom" id="SX5-U4-rA2"/>
                             <constraint firstItem="OyS-hq-b7M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Txf-QO-ZYu"/>
                             <constraint firstItem="OyS-hq-b7M" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VCG-4k-OvK"/>
                             <constraint firstItem="w86-aQ-Ubj" firstAttribute="top" secondItem="ojp-IP-Uem" secondAttribute="bottom" id="XlC-Kv-5gw"/>
                             <constraint firstItem="w86-aQ-Ubj" firstAttribute="top" secondItem="ojp-IP-Uem" secondAttribute="bottom" id="aRD-ri-dpf"/>
-                            <constraint firstItem="ojp-IP-Uem" firstAttribute="top" secondItem="OyS-hq-b7M" secondAttribute="bottom" id="bBK-IQ-TCj"/>
                             <constraint firstItem="OyS-hq-b7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bgV-Kp-ENZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ojp-IP-Uem" secondAttribute="trailing" id="i1O-Ex-4kW"/>
                             <constraint firstItem="ojp-IP-Uem" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kdL-25-cZZ"/>
-                            <constraint firstItem="ojp-IP-Uem" firstAttribute="top" secondItem="OyS-hq-b7M" secondAttribute="bottom" id="qxJ-1C-fms"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="noEntryView" destination="cVd-yG-m5m" id="dfC-dc-LHp"/>
                         <outlet property="photoJournalCollectionView" destination="ojp-IP-Uem" id="x3Q-jp-JUZ"/>
+                        <outlet property="searchBar" destination="fmC-bH-Pof" id="ESl-rh-FTT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -154,7 +161,7 @@
                     <viewLayoutGuide key="safeArea" id="OFB-xO-kPa"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="53.623188405797109" y="26.785714285714285"/>
+            <point key="canvasLocation" x="53.623188405797109" y="26.086956521739133"/>
         </scene>
         <!--Journal Image Picker View Controller-->
         <scene sceneID="BGd-G3-CWm">
