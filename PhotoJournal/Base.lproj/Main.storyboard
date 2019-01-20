@@ -219,6 +219,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="juj-dG-fAt" firstAttribute="trailing" secondItem="NuM-cp-o6m" secondAttribute="trailing" constant="11" id="74K-2i-81E"/>
                             <constraint firstItem="nD0-y8-qD3" firstAttribute="leading" secondItem="juj-dG-fAt" secondAttribute="leading" id="EG9-pG-Iyq"/>
@@ -235,14 +236,23 @@
                             <constraint firstItem="juj-dG-fAt" firstAttribute="trailing" secondItem="L8n-GP-jnc" secondAttribute="trailing" constant="11" id="zyw-G5-TFG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="juj-dG-fAt"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dzv-5c-OY5" appends="YES" id="JHo-HR-fnD"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="CwK-17-Myy" id="oy1-Bb-EU3"/>
                         <outlet property="journalCaptionTextView" destination="NuM-cp-o6m" id="BLO-ss-ezd"/>
                         <outlet property="journalPhoto" destination="L8n-GP-jnc" id="Nlm-ZU-EBm"/>
+                        <outlet property="tapGesture" destination="dzv-5c-OY5" id="65u-qQ-Zbk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtB-KP-4ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dzv-5c-OY5">
+                    <connections>
+                        <action selector="tapGestureForKeyboard:" destination="JXt-XY-fZz" id="fkS-3k-1nQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="835" y="27"/>
         </scene>

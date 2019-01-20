@@ -11,6 +11,7 @@ import AVKit
 
 class JournalImagePickerViewController: UIViewController {
 
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var journalCaptionTextView: UITextView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var journalPhoto: UIImageView!
@@ -35,6 +36,7 @@ class JournalImagePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addGestureRecognizer(tapGesture)
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
         journalCaptionTextView.delegate = self
@@ -42,6 +44,9 @@ class JournalImagePickerViewController: UIViewController {
             cameraButton.isEnabled = false
         }
         setUpJournalDetailViewController()
+    }
+    @IBAction func tapGestureForKeyboard(_ sender: UITapGestureRecognizer) {
+        journalCaptionTextView.resignFirstResponder()
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
